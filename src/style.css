@@ -1,0 +1,60 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  background-color: rgb(255, 255, 255);
+  font-family: Arial, Helvetica, sans-serif;
+  color: aliceblue;
+  margin: 0;
+}
+
+.container {
+  background-color: #383838;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  margin: 50px 0px 10px;
+  width: 80%;
+  font-size: 48px;
+  font-weight: 400;
+}
+
+.subtitle {
+  margin-top: 0px;
+  width: 80%;
+  font-weight: 200;
+}
+
+.form {
+  width: 80%;
+}
+
+.input {
+  border: 1px solid dimgray;
+  border-radius: 4px;
+  width: 80%;
+  max-width: 720px;
+  height: 40px;
+}
+
+.input::placeholder {
+  padding-left: 10px;
+}
+
+.submit {
+  height: 44px;
+  width: 18%;
+  max-width: 145px;
+  border: 1px solid dimgray;
+  border-radius: 4px;
+  background-color: #ADADAD;
+  color: #383838;
+  font-size: 16px;
+}
+
+.example {
+  width: 80%;
+  color: #ADADAD;
+}

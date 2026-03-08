@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>frontend-project-11</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h1 class="display-4 my-4">RSS агрегатор</h1>
+                <h3 class="display-4 my-4">Начните читать RSS сегодня! Это легко, это красиво.</h3>
+                
+                <form class="mb-4">
+                    <div class="input-group">
+                        <input 
+                            type="url" 
+                            class="form-control" 
+                            placeholder="Ссылка RSS"
+                            aria-label="RSS ссылка"
+                            required
+                        >
+                        <button class="btn btn-primary" type="submit">Добавить</button>
+                    </div>
+                </form>
+
+                <p class="example">Пример: https://lorem-rss.hexlet.app/feed</p>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

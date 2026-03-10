@@ -7,7 +7,7 @@ body {
   margin: 0;
 }
 
-.container {
+.container-fluid {
   background-color: #383838;
   display: flex;
   align-items: center;
@@ -15,46 +15,15 @@ body {
 }
 
 .title {
-  margin: 50px 0px 10px;
-  width: 80%;
   font-size: 48px;
   font-weight: 400;
 }
 
 .subtitle {
-  margin-top: 0px;
-  width: 80%;
+  font-size: 32px;
   font-weight: 200;
 }
 
-.form {
-  width: 80%;
-}
-
-.input {
-  border: 1px solid dimgray;
-  border-radius: 4px;
-  width: 80%;
-  max-width: 720px;
-  height: 40px;
-}
-
-.input::placeholder {
-  padding-left: 10px;
-}
-
-.submit {
-  height: 44px;
-  width: 18%;
-  max-width: 145px;
-  border: 1px solid dimgray;
-  border-radius: 4px;
-  background-color: #ADADAD;
-  color: #383838;
-  font-size: 16px;
-}
-
 .example {
-  width: 80%;
   color: #ADADAD;
 }

@@ -35,10 +35,10 @@ form.addEventListener('submit', (e) => {
       state.form.valid = true
       state.form.error = null
     })
-    .catch((errorMessage) => {
+    .catch((error) => {
       state.form.processState = 'error'
       state.form.valid = false
-      state.form.error = errorMessage ////////////////
+      state.form.error = error
     })
 })
 

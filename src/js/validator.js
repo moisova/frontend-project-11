@@ -1,5 +1,15 @@
 import * as yup from 'yup'
 
+yup.setLocale({
+  mixed: {
+    required: 'errors.required',
+    notOneOf: 'errors.duplicate'
+  },
+  string: {
+    url: 'errors.url'
+  }
+})
+
 const getSchema = (feeds) => {
   return yup.object().shape({
     url: yup

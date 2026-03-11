@@ -1,11 +1,17 @@
 import state from './state.js'
 import validate from './validator.js'
 import { subscribe } from 'valtio/vanilla'
+import i18n from '../locales/index.js'
 
 const form = document.querySelector('form')
 const input = document.querySelector('input')
 const submitButton = document.querySelector('button[type="submit"]')
 const exampleElement = document.querySelector('p.example')
+
+document.querySelector('h1').textContent = i18n.t('title')
+document.querySelector('.subtitle').textContent = i18n.t('subtitle')
+document.querySelector('.example').textContent = i18n.t('example')
+submitButton.textContent = i18n.t('button')
 
 input.addEventListener('input', (e) => {
   state.form.fields.url = e.target.value
@@ -32,7 +38,7 @@ form.addEventListener('submit', (e) => {
     .catch((errorMessage) => {
       state.form.processState = 'error'
       state.form.valid = false
-      state.form.error = errorMessage
+      state.form.error = errorMessage ////////////////
     })
 })
 
@@ -59,10 +65,10 @@ subscribe(state.form, () => {
   }
 
   if(state.form.processState === 'error') {
-    errorElement.textContent = state.form.error
+    errorElement.textContent = i18n.t(state.form.error)
     successElement.textContent = ''
   } else if (state.form.processState === 'success') {
-    successElement.textContent = 'RSS успешно загружен'
+    successElement.textContent = i18n.t('success')
     errorElement.textContent = ''
   } else {
     successElement.textContent = ''

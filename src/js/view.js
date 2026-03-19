@@ -2,8 +2,7 @@ import state from './state.js'
 import validate from './validator.js'
 import { subscribe } from 'valtio/vanilla'
 import i18n from '../locales/index.js'
-import { fetchRSS } from './rss.js'
-import { parseRSS } from './rss.js'
+import { fetchRSS, parseRSS } from './rss.js'
 
 const form = document.querySelector('form')
 const input = document.querySelector('input')
@@ -50,11 +49,9 @@ form.addEventListener('submit', (e) => {
         ...post,
         feedId: feed.id
       }))
+
       state.feeds.push(feed)
       state.posts.push(...postsWithId)
-      console.log('Добавлен фид:', feed)
-      console.log('Все фиды:', state.feeds)
-      console.log('Все посты:', state.posts)
       
       state.form.fields.url = ''
       input.value = ''

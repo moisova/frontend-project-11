@@ -75,14 +75,14 @@ form.addEventListener('submit', (e) => {
 let errorElement = document.querySelector('.error-feedback')
 if (!errorElement) {
   errorElement = document.createElement('div')
-  errorElement.classList.add('error-feedback', 'text-danger', 'small', 'mt-2')
+  errorElement.classList.add('error-feedback', 'feedback', 'text-danger', 'small', 'mt-2')
   exampleElement.after(errorElement)
 }
 
 let successElement = document.querySelector('.success-feedback')
 if (!successElement) {
   successElement = document.createElement('div')
-  successElement.classList.add('success-feedback', 'text-success', 'small', 'mt-2')
+  successElement.classList.add('success-feedback', 'feedback', 'text-success', 'small', 'mt-2')
   exampleElement.after(successElement)
 }
 
@@ -92,7 +92,7 @@ const renderFeeds = (feeds) => {
   feeds.forEach(feed => {
     const li = document.createElement('li')
     li.className = 'mb-4'
-    const titleEl = document.createElement('h4')
+    const titleEl = document.createElement('h3')
     titleEl.classList.add('text-dark')
     titleEl.textContent = feed.title
 

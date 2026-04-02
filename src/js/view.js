@@ -72,18 +72,11 @@ form.addEventListener('submit', (e) => {
     })
 })
 
-let errorElement = document.querySelector('.error-feedback')
-if (!errorElement) {
-  errorElement = document.createElement('div')
-  errorElement.classList.add('error-feedback', 'feedback', 'text-danger', 'small', 'mt-2')
-  exampleElement.after(errorElement)
-}
-
-let successElement = document.querySelector('.success-feedback')
-if (!successElement) {
-  successElement = document.createElement('div')
-  successElement.classList.add('success-feedback', 'feedback', 'text-success', 'small', 'mt-2')
-  exampleElement.after(successElement)
+let feedbackElement = document.querySelector('.feedback')
+if (!feedbackElement) {
+  feedbackElement = document.createElement('div')
+  feedbackElement.classList.add('feedback', 'text-danger', 'small', 'mt-2')
+  exampleElement.after(feedbackElement)
 }
 
 const renderFeeds = (feeds) => {
@@ -149,16 +142,18 @@ subscribe(state.form, () => {
     input.classList.add('is-invalid')
   }
 
-  if(state.form.processState === 'error') {
-    errorElement.textContent = i18n.t(state.form.error)
-    successElement.textContent = ''
-  } else if (state.form.processState === 'success') {
-    successElement.textContent = i18n.t('success')
-    errorElement.textContent = ''
-  } else {
-    successElement.textContent = ''
-    errorElement.textContent = ''
-  }
+if (state.form.processState === 'error') {
+  feedbackElement.textContent = i18n.t(state.form.error)
+  feedbackElement.classList.remove('text-success')
+  feedbackElement.classList.add('text-danger')
+} else if (state.form.processState === 'success') {
+  feedbackElement.textContent = i18n.t('success')
+  feedbackElement.classList.remove('text-danger')
+  feedbackElement.classList.add('text-success')
+} else {
+  feedbackElement.textContent = ''
+  feedbackElement.classList.remove('text-danger', 'text-success')
+}
 })
 
 subscribe(state.feeds, () => {

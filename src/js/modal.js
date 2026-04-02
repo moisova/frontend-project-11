@@ -2,6 +2,7 @@ import state from "./state"
 import * as bootstrap from "bootstrap"
 
 const modalDiv = document.createElement('div')
+modalDiv.id = 'modal'
 modalDiv.className = 'modal fade'
 modalDiv.setAttribute('tabindex', '-1')
 modalDiv.innerHTML = `

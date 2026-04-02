@@ -40,7 +40,7 @@ export const showModal = (post) => {
     const linkElement = document.querySelector(`a[href="${post.link}"]`)
     if (linkElement) {
       linkElement.classList.remove('fw-bold')
-      linkElement.classList.add('fw-normal')
+      linkElement.classList.add('link-secondary')
     }
   }
 }

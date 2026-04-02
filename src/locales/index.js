@@ -2,12 +2,11 @@ import i18n from "i18next";
 import en from "./en";
 import ru from "./ru";
 
-i18n.init({
-  lng: 'ru',
-  resources: {
-    ru: ru,
-    en: en
-  }
-})
+const initI18n = () => {
+  return i18n.init({
+    lng: 'ru',
+    resources: { ru, en }
+  })
+}
 
-export default i18n
+export { i18n, initI18n }

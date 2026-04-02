@@ -1,7 +1,7 @@
 import state from './state.js'
 import validate from './validator.js'
 import { subscribe } from 'valtio/vanilla'
-import i18n from '../locales/index.js'
+import { i18n } from '../locales/index.js'
 import { fetchRSS, parseRSS } from './rss.js'
 import { showModal } from './modal.js'
 
@@ -24,6 +24,7 @@ input.addEventListener('input', (e) => {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault()
+  submitButton.disabled = true
   state.form.processState = 'sending'
   state.form.valid = true
   state.form.error = null
@@ -53,9 +54,12 @@ form.addEventListener('submit', (e) => {
 
       state.feeds.push(feed)
       state.posts.push(...postsWithId)
-      
+
+      submitButton.disabled = false
+
       state.form.fields.url = ''
       input.value = ''
+      input.focus()
       state.form.processState = 'success'
       state.form.valid = true
       state.form.error = null
@@ -64,6 +68,7 @@ form.addEventListener('submit', (e) => {
       state.form.processState = 'error'
       state.form.valid = false
       state.form.error = error
+      submitButton.disabled = false
     })
 })
 

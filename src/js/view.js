@@ -49,7 +49,7 @@ form.addEventListener('submit', (e) => {
 
       const postsWithId = feedData.posts.map(post => ({
         ...post,
-        feedId: feed.id
+        feedId: feed.id,
       }))
 
       state.feeds.push(feed)
@@ -82,7 +82,7 @@ if (!feedbackElement) {
 const renderFeeds = (feeds) => {
   feedsContainer.innerHTML = ''
   const ul = document.createElement('ul')
-  feeds.forEach(feed => {
+  feeds.forEach((feed) => {
     const li = document.createElement('li')
     li.className = 'mb-4'
     const titleEl = document.createElement('h3')
@@ -98,21 +98,20 @@ const renderFeeds = (feeds) => {
     ul.appendChild(li)
   })
   feedsContainer.appendChild(ul)
-
 }
 
 const renderPosts = (posts) => {
   postsContainer.innerHTML = ''
   const ul = document.createElement('ul')
-  posts.forEach(post => {
+  posts.forEach((post) => {
     const li = document.createElement('li')
     li.classList.add('d-flex', 'justify-content-between', 'align-items-center', 'mb-2')
-    
+
     const link = document.createElement('a')
     link.setAttribute('href', post.link)
     link.setAttribute('target', '_blank')
     link.textContent = post.title
-    
+
     const linkElement = document.querySelector(`a[href="${post.link}"]`)
     if (linkElement) {
       linkElement.classList.remove('fw-bold')
@@ -137,23 +136,25 @@ const renderPosts = (posts) => {
 subscribe(state.form, () => {
   if (state.form.valid) {
     input.classList.remove('is-invalid')
-  } 
+  }
   else {
     input.classList.add('is-invalid')
   }
 
-if (state.form.processState === 'error') {
-  feedbackElement.textContent = i18n.t(state.form.error)
-  feedbackElement.classList.remove('text-success')
-  feedbackElement.classList.add('text-danger')
-} else if (state.form.processState === 'success') {
-  feedbackElement.textContent = i18n.t('success')
-  feedbackElement.classList.remove('text-danger')
-  feedbackElement.classList.add('text-success')
-} else {
-  feedbackElement.textContent = ''
-  feedbackElement.classList.remove('text-danger', 'text-success')
-}
+  if (state.form.processState === 'error') {
+    feedbackElement.textContent = i18n.t(state.form.error)
+    feedbackElement.classList.remove('text-success')
+    feedbackElement.classList.add('text-danger')
+  } 
+  else if (state.form.processState === 'success') {
+    feedbackElement.textContent = i18n.t('success')
+    feedbackElement.classList.remove('text-danger')
+    feedbackElement.classList.add('text-success')
+  } 
+  else {
+    feedbackElement.textContent = ''
+    feedbackElement.classList.remove('text-danger', 'text-success')
+  }
 })
 
 subscribe(state.feeds, () => {

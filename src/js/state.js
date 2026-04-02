@@ -1,4 +1,4 @@
-import { proxy } from 'valtio/vanilla';
+import { proxy } from 'valtio/vanilla'
 
 const state = proxy({
   form: {
@@ -10,7 +10,7 @@ const state = proxy({
     },
   },
   feeds: [],
-  posts: [], 
+  posts: [],
   readPosts: [],
 })
 

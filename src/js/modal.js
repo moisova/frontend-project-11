@@ -1,5 +1,5 @@
-import state from "./state"
-import * as bootstrap from "bootstrap"
+import state from './state'
+import * as bootstrap from 'bootstrap'
 
 const modalDiv = document.createElement('div')
 modalDiv.id = 'modal'
@@ -28,13 +28,12 @@ const linkEl = modalDiv.querySelector('.modal-footer a')
 const modal = new bootstrap.Modal(modalDiv)
 
 export const showModal = (post) => {
-
   titleEl.textContent = post.title
   bodyEl.textContent = post.description
   linkEl.href = post.link
-  
+
   modal.show()
-  
+
   if (!state.readPosts.includes(post.link)) {
     state.readPosts.push(post.link)
     const linkElement = document.querySelector(`a[href="${post.link}"]`)

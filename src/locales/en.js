@@ -10,7 +10,7 @@ export default {
       url: 'Must be a valid URL',
       duplicate: 'RSS already exists',
       network: 'Network error',
-      invalidRSS: 'Resource does not contain valid RSS'
-  }
+      invalidRSS: 'Resource does not contain valid RSS',
+    },
   },
 }

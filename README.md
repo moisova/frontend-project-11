@@ -5,4 +5,4 @@
 ### Test and linter status:
 [![CI](https://github.com/moisova/frontend-project-11/actions/workflows/ci.yaml/badge.svg)](https://github.com/moisova/frontend-project-11/actions/workflows/ci.yaml)
 ### Link:
-[frontend-project-11](frontend-project-11-snowy-two.vercel.app)
+[frontend-project-11](https://frontend-project-11-snowy-two.vercel.app/)

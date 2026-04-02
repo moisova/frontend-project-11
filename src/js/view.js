@@ -67,7 +67,7 @@ form.addEventListener('submit', (e) => {
     .catch((error) => {
       state.form.processState = 'error'
       state.form.valid = false
-      state.form.error = error
+      state.form.error = typeof error === 'string' ? error : error.message
       submitButton.disabled = false
     })
 })
@@ -120,7 +120,7 @@ const renderPosts = (posts) => {
     }
 
     const isRead = state.readPosts.some(readLink => readLink === post.link)
-    isRead ? link.classList.add('fw-normal') : link.classList.add('fw-bold')
+    isRead ? link.classList.add('link-secondary') : link.classList.add('fw-bold')
 
     const button = document.createElement('button')
     button.addEventListener('click', () => showModal(post))

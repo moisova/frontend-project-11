@@ -10,13 +10,19 @@ export const fetchRSS = (url) => {
     return response.data.contents
   })
   .catch(() => {
-    throw new Error('Ошибка при загрузке RSS')
+    throw new Error('errors.network')
   })
 }
 
 export const parseRSS = (xmlString) => {
   const parser = new DOMParser()
   const doc = parser.parseFromString(xmlString, 'text/xml')
+
+  const parserError = doc.querySelector('parsererror')
+    if (parserError) {
+    throw new Error('errors.invalidRSS')
+  }
+  
   const title = doc.querySelector('channel > title').textContent
   const description = doc.querySelector('channel > description').textContent
   const items = doc.querySelectorAll('item')

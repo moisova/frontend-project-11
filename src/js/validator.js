@@ -14,11 +14,10 @@ const getSchema = (feeds) => {
   return yup.object().shape({
     url: yup
     .string()
-    .required('Не должно быть пустым')
-    .url('Ссылка должна быть валидным URL')
+    .required()
+    .url()
     .notOneOf(
-      feeds.map(feed => feed.url),
-      'RSS уже существует')
+      feeds.map(feed => feed.url))
   })
 }
 

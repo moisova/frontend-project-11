@@ -3,6 +3,7 @@ import validate from './validator.js'
 import { subscribe } from 'valtio/vanilla'
 import i18n from '../locales/index.js'
 import { fetchRSS, parseRSS } from './rss.js'
+import { showModal } from './modal.js'
 
 const form = document.querySelector('form')
 const input = document.querySelector('input')
@@ -113,8 +114,18 @@ const renderPosts = (posts) => {
     link.setAttribute('href', post.link)
     link.setAttribute('target', '_blank')
     link.textContent = post.title
+    
+    const linkElement = document.querySelector(`a[href="${post.link}"]`)
+    if (linkElement) {
+      linkElement.classList.remove('fw-bold')
+      linkElement.classList.add('fw-normal')
+    }
+
+    const isRead = state.readPosts.some(readLink => readLink === post.link)
+    isRead ? link.classList.add('fw-normal') : link.classList.add('fw-bold')
 
     const button = document.createElement('button')
+    button.addEventListener('click', () => showModal(post))
     button.textContent = 'Просмотр'
     button.classList.add('btn', 'btn-link', 'btn-sm')
 

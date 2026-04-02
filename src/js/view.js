@@ -145,12 +145,12 @@ subscribe(state.form, () => {
     feedbackElement.textContent = i18n.t(state.form.error)
     feedbackElement.classList.remove('text-success')
     feedbackElement.classList.add('text-danger')
-  } 
+  }
   else if (state.form.processState === 'success') {
     feedbackElement.textContent = i18n.t('success')
     feedbackElement.classList.remove('text-danger')
     feedbackElement.classList.add('text-success')
-  } 
+  }
   else {
     feedbackElement.textContent = ''
     feedbackElement.classList.remove('text-danger', 'text-success')

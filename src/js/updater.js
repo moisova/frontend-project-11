@@ -4,8 +4,8 @@ import { fetchRSS, parseRSS } from './rss'
 const updateFeeds = () => {
   const feeds = state.feeds
 
-  const promises = feeds.map(feed => {
-    const existingPosts = state.posts.filter((post) => post.feedId === feed.id)
+  const promises = feeds.map((feed) => {
+    const existingPosts = state.posts.filter(post => post.feedId === feed.id)
 
     return fetchRSS(feed.url)
       .then(parseRSS)
